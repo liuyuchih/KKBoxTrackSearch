@@ -45,6 +45,7 @@ class MainViewModel (private val repository: KKboxRepository): ViewModel() {
                 Log.d(LOGCAT_TAG, "data size: " + response.tracks.data.size)
                 Log.d(LOGCAT_TAG, "paging: " + response.paging)
                 nextPageUrl = response.paging.next
+                trackList.clear()
                 trackList.addAll(response.tracks.data)
                 searchResults.postValue(trackList)
             } catch (e: Exception) {
